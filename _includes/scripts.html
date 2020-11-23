@@ -1,0 +1,82 @@
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-33073396-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+
+<script type="text/javascript" charset="utf-8">
+    document.onreadystatechange = function() {
+        if ( document.readyState == 'complete' ) {
+            var links = document.querySelectorAll( 'header nav li'),
+                selection = document.querySelector( 'header .nav-selection' ),
+                i, link;
+
+            var activeEl = document.querySelector( 'header nav li.active' );
+
+            for ( i = 0; i < links.length; i++ ) {
+                link = links[ i ];
+                link.addEventListener( 'mouseover', function() {
+                    var childPos = this.offsetLeft;
+                    var parentPos = document.querySelector( 'header nav' ).offsetLeft;
+                    var newPos = childPos - parentPos;
+
+                    var newPoseString = "translateX("+newPos+"px)";
+                    console.log(newPoseString)
+
+                    var newWidth = this.clientWidth-20+"px";
+                    console.log(newWidth)
+                    selection.style.width=newWidth;
+
+                    selection.style["-webkit-transform"] = newPoseString;
+                    selection.style["-moz-transform"] = newPoseString;
+                    selection.style["-ms-transform"] = newPoseString;
+                    selection.style["-o-transform"] = newPoseString;
+                });
+                link.addEventListener( 'mouseout', function() {
+
+                    var childPos = activeEl.offsetLeft;
+                    var parentPos = document.querySelector( 'header nav' ).offsetLeft;
+                    var newPos = childPos - parentPos;
+
+                    var newPoseString = "translateX("+newPos+"px)";
+                    console.log(newPoseString)
+
+                    var newWidth = activeEl.clientWidth-20+"px";
+                    selection.style.width=newWidth;
+                    console.log(newWidth)
+
+                    selection.style["-webkit-transform"] = newPoseString;
+                    selection.style["-moz-transform"] = newPoseString;
+                    selection.style["-ms-transform"] = newPoseString;
+                    selection.style["-o-transform"] = newPoseString;
+
+                });
+            }
+
+            //Set initial nav-selection stuff
+            var childPos = activeEl.offsetLeft;
+            var parentPos = document.querySelector( 'header nav' ).offsetLeft;
+            var newPos = childPos - parentPos;
+
+            var newPoseString = "translateX("+newPos+"px)";
+            console.log(newPoseString)
+
+            var newWidth = activeEl.clientWidth-20+"px";
+            selection.style.width=newWidth;
+            console.log(newWidth)
+
+            selection.style["-webkit-transform"] = newPoseString;
+            selection.style["-moz-transform"] = newPoseString;
+            selection.style["-ms-transform"] = newPoseString;
+            selection.style["-o-transform"] = newPoseString;
+        }
+    };
+</script>

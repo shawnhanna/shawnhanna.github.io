@@ -1,0 +1,32 @@
+---
+title: Projects
+nav: projects
+layout: default
+
+order: ['Platypus', 'CMU', 'TORC Robotics', 'Team ViGIR', Google Lunar XPRIZE', 'MRSD Project', 'RRT', 'Caterpillar Internship']
+---
+
+<div id="projects">
+  {% for orderTitle in page.order %}
+    {% for page in site.pages %}
+      {% if page.box == true and page.title == orderTitle %}
+        {% if page.link %}
+        <a class="project" href="{{ page.link }}">
+        {% else %}
+        <a class="project" href="{{ page.url | replace: '/index.html', '' }}">
+        {% endif %}
+          <div class="project-header">
+              <h2>
+                  {{ page.title }}
+              </h2>
+          </div>
+          <div class="project-body">
+            <p>
+                {{ page.summary }}
+            </p>
+          </div>
+        </a>
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+</div>

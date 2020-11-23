@@ -1,0 +1,52 @@
+<header>
+    <div class="container">
+        <div class="profile">
+            <div class="social">
+                <div class="row-social">
+                    <a href="https://github.com/shawnhanna">
+                        <div data-picture data-alt="Github">
+                            <div data-src="/img/octocat16.png"></div>
+                            <!-- <div data-src="/img/octocat32.png"     data-media="(-webkit-min-device-pixel-ratio: 1.5)"></div> -->
+                            <noscript><img src="/img/octocat16.png" alt="Github"></noscript>
+                        </div>
+                    </a>
+                </div>
+                <div class="row-social">
+                    <a href="https://www.linkedin.com/in/shawnkhanna/">
+                        <div data-picture data-alt="LinkedIn">
+                            <div data-src="/img/linked_in_black_16.png"></div>
+                            <!-- <div data-src="/img/linked_in_black_32.png"     data-media="(-webkit-min-device-pixel-ratio: 1.5)"></div> -->
+                            <noscript><img src="/img/linked_in_black_16.png" alt="LinkedIn"></noscript>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="avatar">
+                <img src="{{ site.avatar_url }}" alt="avatar">
+            </div>
+        </div>
+        <h5 class="logo"><a href="/">Shawn Hanna</a></h5>
+        <nav class="main">
+            <ul>
+                {% if page.nav == "home" %}
+                <li class="active"><a href="/">Home</a></li>
+                {% else %}
+                <li><a href="/">Home</a></li>
+                {% endif %}
+                {% if page.nav == "about" %}
+                <li class="active"><a href="/about">About</a></li>
+                {% else %}
+                <li><a href="/about">About</a></li>
+                {% endif %}
+                {% if page.nav == "projects" %}
+                <li class="active"><a href="/projects">Projects</a></li>
+                {% else %}
+                <li><a href="/projects">Projects</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        <div class="nav-slider">
+            <div class="nav-selection {{ page.nav }}"></div>
+        </div>
+    </div>
+</header>
